@@ -4,7 +4,19 @@ const clouds = document.querySelector('.clouds')
 const clouds2 = document.querySelector('.clouds2')
 const clouds3 = document.querySelector('.clouds3')
 const gameOver = document.querySelector('.game-over-gif')
+const deathSong = document.getElementById('deathSong')
+const soundTrack = document.getElementById('soundTrack')
 
+soundTrack.play()
+
+
+setTimeout(() => {
+    mario.src ='../images/mario.gif'
+    pipe.classList.add('pipeAnimation')
+    clouds.classList.add('cloudsAnimation')
+    clouds2.classList.add('cloudsAnimation2')
+    clouds3.classList.add('cloudsAnimation3')
+}, 2300)
 
 const jump = () => {
     mario.classList.add('jump')
@@ -29,13 +41,13 @@ const loop = setInterval(() => {
         pipe.style.animation = 'none'
         pipe.style.left = `${pipePositon}px`
 
-        mario.style.animation = 'none'
         mario.style.bottom = `${marioPositon}px`
 
-        mario.src = '../images/game-over.png'
+        mario.src ='../images/game-over.png'
         mario.style.width = '90px'
         mario.style.height = '130px'
         mario.style.marginLeft = '38px'
+        mario.style.bottom = '-180px'
 
         clouds.style.animation = 'none'
         clouds.style.right = `${cloudsPositon}px`
@@ -46,13 +58,14 @@ const loop = setInterval(() => {
         clouds3.style.animation = 'none'
         clouds3.style.right = `${clouds3Positon}px`
 
-        gameOver.style.display = 'block'
+        mario.classList.add('death')
+
+        soundTrack.pause()
+        deathSong.play()
+
+        gameOver.style.display = 'flex'
 
         clearInterval(loop)
-
-        const reload = setInterval(() => {
-            //window.location.reload()
-        }, 2500)
 
     }
 
@@ -65,7 +78,7 @@ document.addEventListener('keydown', function(e) {
 })
 
 document.addEventListener('keydown', function(e) {
-    if(e.key === 'r') {
-        window.location.reload()
-    }
+   if(e.key === 'r') {
+       window.location.reload()
+   }
 })

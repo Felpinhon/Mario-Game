@@ -8,15 +8,17 @@
 
     <title>Mario Jump</title>
 </head>
-<body>
+<body onclick="jump()">
     
     <div class="game-board">
-        <img src="images/mario.gif" class="mario">
+        <audio src="sounds/Death-Song.mp3" id="deathSong"></audio>
+        <audio src="sounds/SoundTrack.mp3" id="soundTrack" loop></audio>
+        <img src="images/mario.png" class="mario">
         <img src="images/pipe.png" class="pipe">
         <img src="images/clouds.png" class="clouds">
         <img src="images/clouds.png" class="clouds2">
         <img src="images/clouds.png" class="clouds3">
-        <div style="position: absolute;">
+        <div style="position: relative;">
             <img src="images/game-over-gif.gif" class="game-over-gif">
         </div>
     </div>
